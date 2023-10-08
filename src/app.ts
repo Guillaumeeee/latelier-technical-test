@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import v1Router from './routes/v1/index';
+import v1Router from './api/v1/routes/index';
 
 const app = express();
 
