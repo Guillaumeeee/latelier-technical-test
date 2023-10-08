@@ -1,3 +1,11 @@
-// export average
-// export median
-// export Body Mass (IMC)
+export const getAverage = (data : Array<Number>) => {
+  
+}
+
+export const getMedian = (data : Array<Number>) => {
+
+}
+
+export const getBodyMass = (data : Array<Number>) => {
+
+}
