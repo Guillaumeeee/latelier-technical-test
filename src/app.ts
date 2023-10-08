@@ -1,11 +1,9 @@
-import express from "express";
-import { json } from "stream/consumers";
+import express, { Request, Response } from "express";
 
 const app = express()
 
 app.use(express.json())
 
-app.get('/api/v1/players', (req, res) => {res.send(`Bonjour l'Atelier !`)})
+app.get('/api/v1/players', (req: Request, res: Response) => {res.send(`Bonjour l'Atelier !`)})
 
-const port = process.env.port || 3000;
-app.listen(port, () => console.log(`Server running on http://localhost:${port}/api/v1`));
+export default app
