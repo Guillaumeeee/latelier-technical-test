@@ -3,7 +3,8 @@ const router = express.Router();
 
 import {
   getPlayers,
-  getPlayerById 
+  getPlayerById,
+  getStats
 } from "../controllers";
 
 import { 
@@ -45,12 +46,11 @@ router.get('/player/:id', async (req: Request, res: Response) : Promise<Player |
  * Task 3, return multiple stats
  */
 
-router.get('/stats', async (req: Request, res: Response) => {
+router.get('/stats', async (req: Request, res: Response) => { // create type Stats
   // query Param ? averageIMC + medianHeight + topCountries
     // check each param, if 0 = send all data
-  // getStats
-  // res.send(data)
-  res.send(`Hello L'Atelier !`)
+  const data = await getStats()
+  res.json(data)
 })
 
 export default router
