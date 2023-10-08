@@ -1,9 +1,17 @@
 import express, { Request, Response } from "express";
+import v1Router from './routes/v1/index';
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-app.get('/api/v1/players', (req: Request, res: Response) => {res.send(`Bonjour l'Atelier !`)})
+/**
+ * security middleware: ?
+*/
+
+/**
+ * Routes
+ */
+app.use('/api/v1', v1Router);
 
 export default app
