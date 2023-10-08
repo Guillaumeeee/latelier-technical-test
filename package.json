@@ -4,7 +4,8 @@
   "description": "This is a REST api for L'Atelier using ExpressJS, Typescript and Jest.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon src/app.ts"
   },
   "repository": {
     "type": "git",
