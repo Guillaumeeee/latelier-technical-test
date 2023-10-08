@@ -1,10 +1,13 @@
-import database, { PlayerList } from "../../../database/model"
+import database, { PlayerList, Player } from "../../../database/model"
 
-// getPlayers
 export const getPlayers = async () : Promise<PlayerList> => {
   return database
 }
 
-// getPLayerById
+export const getPlayerById = async(id: Number): Promise<Player | boolean> => {
+  const player = database.players.find(player => player.id === id)
+  if (!player) return false
+  return player
+}
 
 // getStats + query param ? 

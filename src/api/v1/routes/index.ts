@@ -1,7 +1,15 @@
 import express, { Request, Response } from "express";
 const router = express.Router();
 
-import { getPlayers } from "../controllers";
+import {
+  getPlayers,
+  getPlayerById 
+} from "../controllers";
+
+import { 
+  PlayerList,
+  Player
+} from "../../../database/model"
 
 /**
  * Task 1, sorted best players to the least
@@ -14,13 +22,23 @@ router.get('/players', async (req: Request, res: Response) => {
 /**
  * Task 2, return info  of specific player
  */
+router.get('/player/:id', async (req: Request, res: Response) : Promise<Player | void > => {
 
-router.get('/player/:id', async (req: Request, res: Response) => {
   const { id } = req.params
-  // check id: exist + number: return KO/OK
-  // getPlayerById: return KO/OK
-  // res.send(data)
-  res.send(`Hello L'Atelier !`)
+  if (!id || !parseInt(id)) {
+    res.status(400).json('Bad request, id is malformatted')
+    return
+  }
+
+  const player : Player | boolean = await getPlayerById(parseInt(id))
+  if (!player){
+    res.status(404).json({
+      body: 'Player not found'
+    })
+    return
+  }
+
+  res.status(200).json(player)
 })
 
 /**
@@ -35,4 +53,4 @@ router.get('/stats', async (req: Request, res: Response) => {
   res.send(`Hello L'Atelier !`)
 })
 
-export default router;
+export default router
