@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                  /* Specify the JavaScript language version (ESNext for latest features). */
+    "module": "CommonJS",                /* Specify the module code generation (CommonJS for Node.js). */
+    "strict": true,                      /* Enable all strict type-checking options. */
+    "esModuleInterop": true,             /* Allow importing CommonJS modules with import syntax. */
+    "skipLibCheck": true,                /* Skip type checking of declaration files (*.d.ts). */
+    "forceConsistentCasingInFileNames": true, /* Ensure consistent casing of file names for imports. */
+    "outDir": "./dist",                  /* Specify an output directory for compiled JavaScript files. */
+    "rootDir": "./src",                  /* Specify the root directory of your source files. */
+    "removeComments": true,              /* Disable emitting comments in output files. */
+    "resolveJsonModule": true,           /* Enable importing .json files as modules. */
+    "declaration": true,                 /* Generate .d.ts declaration files. */
+    "sourceMap": true                   /* Generate source maps for debugging. */
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
