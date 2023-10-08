@@ -21,3 +21,8 @@ export const getMedian = (data : Array<Number>) : number => {
   const median :number = mean(data)
   return median
 }
+
+export const getIMC = (weight : number, height : number) : number => {
+  const IMC : number = (weight/1000) / ((height /100)*2)
+  return IMC
+}
