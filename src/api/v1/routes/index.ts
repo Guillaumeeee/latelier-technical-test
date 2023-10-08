@@ -1,13 +1,14 @@
 import express, { Request, Response } from "express";
 const router = express.Router();
 
+import { getPlayers } from "../controllers";
+
 /**
  * Task 1, sorted best players to the least
  */
 router.get('/players', async (req: Request, res: Response) => {
-  // getPlayers()
-  // res.send(data)
-  res.send(`Hello L'Atelier !`)
+  const data = await getPlayers()
+  res.send(data)
 })
 
 /**
