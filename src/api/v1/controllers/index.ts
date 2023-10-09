@@ -1,10 +1,10 @@
-import database, { PlayerList, Player } from "../../../database/model"
+import database, { PlayerList, Player } from "../../../database/model";
 import {
   getAverage,
   getMedian,
   getRatio,
   getIMC
-} from "../../../utils"
+} from "../../../utils";
 
 export const getPlayers = async () : Promise<PlayerList> => {
   return database
@@ -32,13 +32,22 @@ export const getStats = async() => { // TODO: create Stats type
 
   // TODO: get average ratio of player if same country
 
+  console.log({
+    listCountries,
+    listPlayerRatio,
+    listIMC
+  })
+
   /**
    * Get highest winnning country by ratio
    */
   let topRatio : number = 0
   let topCountryIndex : number = 0
   for (let i : number = 0; i < listPlayerRatio.length; i++) {
-    if (listPlayerRatio[i] > topRatio) topCountryIndex = i
+    if (listPlayerRatio[i] > topRatio) {
+      topCountryIndex = i
+      topRatio = listPlayerRatio[i]
+    }
   }
   const topCountry = listCountries[topCountryIndex]
   const topCountryRatio = listPlayerRatio[topCountryIndex]

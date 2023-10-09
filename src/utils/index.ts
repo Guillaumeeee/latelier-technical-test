@@ -1,4 +1,4 @@
-import { mean } from "lodash";
+import { mean, round } from "lodash";
 
 export const getRatio = (data : number[]) : number => {
   if (data.length === 0) return 0
@@ -22,5 +22,6 @@ export const getMedian = (data : Array<Number>) : number => {
 
 export const getIMC = (weight : number, height : number) : number => {
   const IMC : number = (weight/1000) / ((height /100)*2)
-  return IMC
+  const roundIMC : number = round(IMC, 3)
+  return roundIMC
 }
