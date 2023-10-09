@@ -10,18 +10,18 @@ engines {
 }
 ```
 
-# Launch the project
+# Launch the project at LOCAL
 ```bash
 npm i
-npm start
+npm run dev
 ```
 
 # Access to the Public API
 ```bash
-link here
+http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/
 ```
 
-# Needs to do
+# Need to do
 
 1. Never try typescript in a project you need to do in under 1 hour
 2. Follow Rule 1

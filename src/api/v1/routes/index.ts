@@ -13,6 +13,15 @@ import {
 } from "../../../database/model"
 
 /**
+ * Host Cloud Healthcheck
+ */
+router.get('/', async (req: Request, res: Response) => {
+  res.status(200).json({ 
+    body: `Hi L'Atelier from AWS Beanstalk`
+  })
+})
+
+/**
  * Task 1, sorted best players to the least
  */
 router.get('/players', async (req: Request, res: Response) => {

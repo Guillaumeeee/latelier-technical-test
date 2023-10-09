@@ -19,6 +19,7 @@ node_modules/
 
 # Output of 'npm pack'
 *.tgz
+*.zip
 
 # dotenv environment variable files
 .env
@@ -32,3 +33,6 @@ node_modules/
 
 # Backup
 *.bck
+
+# Build
+dist
