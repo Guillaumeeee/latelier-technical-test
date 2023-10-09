@@ -2,7 +2,7 @@ import { mean, round } from "lodash";
 
 export const getRatio = (data : number[]) : number => {
   if (data.length === 0) return 0
-  const winGames : number = data.reduce((accumulator, value) => value === 1 ? accumulator + 1 : value, 0)
+  const winGames : number = data.reduce((accumulator, value) => value === 1 ? accumulator + 1 : accumulator, 0)
   const ratio : number = winGames / data.length
   return ratio
 }

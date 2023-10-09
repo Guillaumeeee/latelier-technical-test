@@ -16,7 +16,12 @@ npm i
 npm run dev
 ```
 
-local link
+# Launch test for project
+```bash
+npm run test
+```
+
+# Access local api
 ```bash
 http://localhost:8080/api/v1/
 http://localhost:8080/api/v1/players

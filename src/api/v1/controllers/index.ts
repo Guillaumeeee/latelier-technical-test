@@ -30,16 +30,10 @@ export const getStats = async() => { // TODO: create Stats type
     listIMC.push(getIMC(player.data.weight, player.data.height))
   }
 
-  // TODO: get average ratio of player if same country
-
-  console.log({
-    listCountries,
-    listPlayerRatio,
-    listIMC
-  })
-
   /**
    * Get highest winnning country by ratio
+   * 
+   * TODO: get average ratio of player if same country
    */
   let topRatio : number = 0
   let topCountryIndex : number = 0
@@ -58,7 +52,7 @@ export const getStats = async() => { // TODO: create Stats type
   const averagePlayersIMC : number = getAverage(listIMC)
   
   /**
-   * get median height of all players
+   * Get median height of all players
    */
   const heightList : number[] = database.players.map((player) => player.data.height/100)
   const medianPlayersHeight : number = getMedian(heightList) 
