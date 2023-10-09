@@ -16,9 +16,20 @@ npm i
 npm run dev
 ```
 
+local link
+```bash
+http://localhost:8080/api/v1/
+http://localhost:8080/api/v1/players
+http://localhost:8080/api/v1/player/52
+http://localhost:8080/api/v1/stats
+```
+
 # Access to the Public API
 ```bash
 http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/
+http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/players
+http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/player/52
+http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
 ```
 
 # Need to do

@@ -4,6 +4,6 @@ dotenv.config();
 
 export const config = {
   server : {
-    port: process.env.port || 3000
+    port: process.env.port || 8080
   }
 }
