@@ -8,7 +8,7 @@ import {
 } from "../controllers";
 
 import {
-  Player
+  PlayerType
 } from "../../../database/model"
 
 /**
@@ -31,7 +31,7 @@ router.get('/players', async (req: Request, res: Response) => {
 /**
  * Task 2, return info  of specific player
  */
-router.get('/player/:id', async (req: Request, res: Response) : Promise<Player | void > => {
+router.get('/player/:id', async (req: Request, res: Response) : Promise<PlayerType | void > => {
 
   const { id } = req.params
   if (!id || !parseInt(id)) {
@@ -39,7 +39,7 @@ router.get('/player/:id', async (req: Request, res: Response) : Promise<Player |
     return
   }
 
-  const player : Player | boolean = await getPlayerById(parseInt(id))
+  const player : PlayerType | boolean = await getPlayerById(parseInt(id))
   if (!player){
     res.status(404).json({
       body: 'Player not found'

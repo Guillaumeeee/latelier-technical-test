@@ -1,4 +1,4 @@
-import database, { PlayerList, Player } from "../../../database/model";
+import database, { PlayerListType, PlayerType } from "../../../database/model";
 import {
   getAverage,
   getMedian,
@@ -6,11 +6,11 @@ import {
   getIMC
 } from "../../../utils";
 
-export const getPlayers = async () : Promise<PlayerList> => {
+export const getPlayers = async () : Promise<PlayerListType> => {
   return database
 }
 
-export const getPlayerById = async(id: number): Promise<Player | boolean> => {
+export const getPlayerById = async(id: number): Promise<PlayerType | boolean> => {
   const player = database.players.find(player => player.id === id)
   if (!player) return false
   return player

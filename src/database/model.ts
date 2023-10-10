@@ -1,30 +1,47 @@
-// use validators/zod ?
-export interface Player {
-  id: number;
-  firstname: string;
-  lastname: string;
-  shortname: string;
-  sex: "M" | "F" | "ApacheHelicopter" ;
-  country: {
-    picture: string;
-    code: string;
-  };
-  picture: string;
-  data: {
-    rank: number;
-    points: number;
-    weight: number;
-    height: number;
-    age: number;
-    last: number[];
-  };
-}
+import { z } from "zod";
 
-export interface PlayerList {
-  players: Player[];
-}
+/**
+ * Define schema using zod
+ */
+const CountrySchema = z.object({
+  picture: z.string().url(),
+  code: z.string(),
+})
 
-const database =  {
+const DataSchema = z.object({
+  rank: z.number(),
+  points: z.number(),
+  weight: z.number(),
+  height: z.number(),
+  age: z.number(),
+  last: z.array(z.number())
+})
+
+export const PlayerSchema = z.object({
+  id: z.number(),
+  firstname: z.string(),
+  lastname: z.string(),
+  shortname: z.string(),
+  sex: z.union([z.literal("M"), z.literal("F"), z.literal("ApacheHelicopter")]),
+  country: CountrySchema,
+  picture: z.string().url(),
+  data: DataSchema
+})
+
+export const PlayerListSchema = z.object({
+  players: z.array(PlayerSchema)
+})
+
+/**
+ * Export zod Schema type
+ */
+export type PlayerType = z.infer<typeof PlayerSchema>;
+export type PlayerListType = z.infer<typeof PlayerListSchema>;
+
+/**
+ * Database
+ */
+const jsonData =  {
   "players": [
     {
       "id": 52,
@@ -129,4 +146,5 @@ const database =  {
   ]
 }
 
-export default database as PlayerList
+const database = PlayerListSchema.parse(jsonData)
+export default database
