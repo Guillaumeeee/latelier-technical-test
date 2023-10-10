@@ -2,6 +2,8 @@
  
 This is a REST api for L'Atelier using ExpressJS, Typescript and Jest.
 
+[Project Instructions](https://tenisu.latelier.co/backend)
+
 # Engines
 
 ```bash
@@ -48,4 +50,6 @@ http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
 7. Swagger doc
 8. Better api framework combo than Type + Express, like Bun + Elysia or just plain Nodejs + Hono
 9. SSL of course
-10. It is okay to miss a world cup rugby game to nailed an tech interview
+10. Create module of each index.ts file into package.json to avoid literal path with dots
+11. Create CI/CD with Github Actions to auto build, package and deploy into AWS beanstalk
+12. It is okay to miss a world cup rugby game to nailed an tech interview
