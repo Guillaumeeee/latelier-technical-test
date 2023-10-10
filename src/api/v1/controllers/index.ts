@@ -10,7 +10,7 @@ export const getPlayers = async () : Promise<PlayerList> => {
   return database
 }
 
-export const getPlayerById = async(id: Number): Promise<Player | boolean> => {
+export const getPlayerById = async(id: number): Promise<Player | boolean> => {
   const player = database.players.find(player => player.id === id)
   if (!player) return false
   return player
@@ -19,12 +19,12 @@ export const getPlayerById = async(id: Number): Promise<Player | boolean> => {
 export const getStats = async() => { // TODO: create Stats type
 
   // Populate diverse list
-  let listCountries : string[] = []
-  let listPlayerRatio : number[] = []
-  let listIMC : number[] = []
+  const listCountries : string[] = []
+  const listPlayerRatio : number[] = []
+  const listIMC : number[] = []
   
   const playersList = database.players
-  for (let player of playersList) {
+  for (const player of playersList) {
     listCountries.push(player.country.code)
     listPlayerRatio.push(getRatio(player.data.last))
     listIMC.push(getIMC(player.data.weight, player.data.height))

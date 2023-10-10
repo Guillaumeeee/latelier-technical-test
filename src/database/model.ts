@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 // use validators/zod ?
 export interface Player {
   id: number;
@@ -20,11 +18,11 @@ export interface Player {
     age: number;
     last: number[];
   };
-};
+}
 
 export interface PlayerList {
   players: Player[];
-};
+}
 
 const database =  {
   "players": [

@@ -7,8 +7,7 @@ import {
   getStats
 } from "../controllers";
 
-import { 
-  PlayerList,
+import {
   Player
 } from "../../../database/model"
 

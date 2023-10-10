@@ -14,7 +14,7 @@ export const getAverage = (data : number[]) : number => {
   return average
 }
 
-export const getMedian = (data : Array<Number>) : number => {
+export const getMedian = (data : Array<number>) : number => {
   if (data.length === 0) return 0
   const median :number = mean(data)
   return median
