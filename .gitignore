@@ -39,3 +39,6 @@ dist
 
 # MAc folder
 .DS_STORE
+
+# Jest coverage directory output
+coverage
