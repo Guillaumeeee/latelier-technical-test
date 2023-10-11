@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 export const config = {
-  server : {
-    port: process.env.port || 8080
-  }
-}
+  server: {
+    port: process.env.port || 8080,
+  },
+};

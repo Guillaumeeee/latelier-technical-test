@@ -1,5 +1,5 @@
 # latelier-technical-test
- 
+
 This is a REST api for L'Atelier using ExpressJS, Typescript and Jest.
 
 [Project Instructions](https://tenisu.latelier.co/backend)
@@ -13,17 +13,20 @@ engines {
 ```
 
 # Launch the project at LOCAL
+
 ```bash
 npm i
 npm run dev
 ```
 
 # Launch test for project
+
 ```bash
 npm run test
 ```
 
 # Access local api
+
 ```bash
 http://localhost:8080/api/v1/
 http://localhost:8080/api/v1/players
@@ -32,6 +35,7 @@ http://localhost:8080/api/v1/stats
 ```
 
 # Access to the Public API
+
 ```bash
 http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/
 http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/players
