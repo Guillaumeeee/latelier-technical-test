@@ -1,6 +1,6 @@
 # latelier-technical-test
 
-This is a REST api for L'Atelier using ExpressJS, Typescript and Jest.
+This is a REST api example using ExpressJS, Typescript and Jest.
 
 [Project Instructions](https://tenisu.latelier.co/backend)
 
@@ -45,15 +45,11 @@ http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
 
 # Need to do
 
-1. Never try typescript in a project you need to do in under 1 hour
-2. Follow Rule 1
-3. Missing Lint
-4. Missing handler (error + response)
-5. Add more security (rate limiter in middleware, WAF/Shield, snyk, ...)
-6. Logger Middleware
-7. Swagger doc
-8. Better api framework combo than Type + Express, like Bun + Elysia or just plain Nodejs + Hono
-9. SSL of course
-10. Create module of each index.ts file into package.json to avoid literal path with dots
-11. Create CI/CD with Github Actions to auto build, package and deploy into AWS beanstalk
-12. It is okay to miss a world cup rugby game to nailed an tech interview
+1. AWS Beanstalk:
+   remove config folder
+   add Procfile to with command: web: node dist/server.js
+
+2. Update npm start tu use ts-node
+3. Logger ?
+4. Prettier + Lint with husky / standard prehook git ?
+5. Ci/Cd for beanstalk

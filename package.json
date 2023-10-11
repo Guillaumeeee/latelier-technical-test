@@ -1,7 +1,7 @@
 {
-  "name": "latelier-technical-test",
+  "name": "ts-node-api-demo",
   "version": "1.0.0",
-  "description": "This is a REST api for L'Atelier using ExpressJS, Typescript and Jest.",
+  "description": "This is a REST api example using ExpressJS, Typescript and Jest.",
   "main": "src/server.ts",
   "scripts": {
     "tdd": "jest --watchAll --verbose",

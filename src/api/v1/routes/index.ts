@@ -10,7 +10,7 @@ import { PlayerType } from '../../../database/model';
  */
 router.get('/', async (req: Request, res: Response) => {
   res.status(200).json({
-    body: `Hi L'Atelier from AWS Beanstalk`,
+    body: `Hi king stranger from AWS Beanstalk`,
   });
 });
 
