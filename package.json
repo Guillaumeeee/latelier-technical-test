@@ -9,7 +9,8 @@
     "dev": "nodemon src/server.ts",
     "build": "tsc",
     "compress": "zip package.zip node_modules dist package-lock.json package.json tsconfig.json",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier -w ."
   },
   "repository": {
     "type": "git",
