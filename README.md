@@ -49,7 +49,7 @@ http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
    remove config folder
    add Procfile to with command: web: node dist/server.js
 
-2. Update npm start tu use ts-node
+2. Add handler CORS 'Access-Control-Allow-Origin: \*' + test it in Jest for each API endpoints + Add comment GIVEN > WHEN > THEN comment
 3. Logger ?
 4. Prettier + Lint with husky / standard prehook git ?
 5. Ci/Cd for beanstalk

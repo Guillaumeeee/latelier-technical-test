@@ -7,6 +7,7 @@ import { getAverage, getMedian, getRatio, getIMC } from '../../src/utils';
  */
 const basePathUrl: string = '/api/v1';
 
+// TODO: add mock type example
 describe('Testing API endpoints', () => {
   describe('GET /players', () => {
     it('should respond with status 200 and data from getPlayers', async () => {
@@ -14,6 +15,8 @@ describe('Testing API endpoints', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeDefined();
       expect(res.body).toBeTruthy();
+      // expect(JSON.parse(res.body).title).toEqual(todo.title);
+      // expect(res.headers!['Access-Control-Allow-Origin']).toEqual('*');
     });
   });
 

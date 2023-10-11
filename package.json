@@ -5,7 +5,10 @@
   "main": "src/server.ts",
   "scripts": {
     "tdd": "jest --watchAll --verbose",
-    "test": "jest --coverage",
+    "test": "npm run test:unit",
+    "test:unit": "jest --testPathPattern=unit",
+    "test:integ": "jest --testPathPattern=integ",
+    "coverage": "jest --coverage jest --testPathPattern=unit",
     "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts",
     "build": "tsc",
