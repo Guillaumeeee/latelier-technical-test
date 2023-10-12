@@ -4,8 +4,8 @@
   "description": "This is a REST api example using ExpressJS, Typescript and Jest.",
   "main": "src/server.ts",
   "scripts": {
-    "tdd": "jest --watchAll --verbose",
     "test": "npm run test:unit",
+    "test:tdd": "jest --watchAll --verbose",
     "test:unit": "jest --testPathPattern=unit",
     "test:integ": "jest --testPathPattern=integ",
     "coverage": "jest --coverage jest --testPathPattern=unit",

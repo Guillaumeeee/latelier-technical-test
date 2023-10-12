@@ -15,8 +15,10 @@ describe('Testing API endpoints', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeDefined();
       expect(res.body).toBeTruthy();
-      // expect(JSON.parse(res.body).title).toEqual(todo.title);
-      // expect(res.headers!['Access-Control-Allow-Origin']).toEqual('*');
+    });
+    it('should respond with header Access-Control-Allow-Origin set to *', async () => {
+      const res = await request(app).get(`${basePathUrl}/players`);
+      expect(res.headers['access-control-allow-origin']).toEqual('*');
     });
   });
 
@@ -36,6 +38,10 @@ describe('Testing API endpoints', () => {
       const res = await request(app).get(`${basePathUrl}/player/dsds`);
       expect(res.statusCode).toBe(400);
     });
+    it('should respond with header Access-Control-Allow-Origin set to *', async () => {
+      const res = await request(app).get(`${basePathUrl}/player/52`);
+      expect(res.headers['access-control-allow-origin']).toEqual('*');
+    });
   });
 
   describe('GET /stats', () => {
@@ -45,9 +51,10 @@ describe('Testing API endpoints', () => {
       expect(res.body).toBeDefined();
       expect(res.body).toBeTruthy();
     });
-    // it.todo('should respond with status 200 and only specific data with queryParam averageIMC from getStats', async () => {})
-    // it.todo('should respond with status 200 and only specific data with queryParam medianHeight from getStats', async () => {})
-    // it.todo('should respond with status 200 and only specific data with queryParam topCountries from getStats', async () => {})
+    it('should respond with header Access-Control-Allow-Origin set to *', async () => {
+      const res = await request(app).get(`${basePathUrl}/stats`);
+      expect(res.headers['access-control-allow-origin']).toEqual('*');
+    });
   });
 });
 
