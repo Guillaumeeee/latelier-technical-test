@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+import 'dotenv/config';
 
 export const config = {
   server: {
