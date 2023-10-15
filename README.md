@@ -45,13 +45,10 @@ http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
 
 # Need to do
 
-0. Revise utils functions and api structure (controllers) to answer the wrong doing in the project
-
 1. AWS Beanstalk:
    remove config folder
    add Procfile to with command: web: node dist/server.js
-
-2. Rework /stats endpoint with proper response typed + Add test /stats as GIVEN > WHEN > THEN with import new type /mock response 
+2. Rework types from /statistics + /utils 
 3. Logger ?
 4. Prettier + Lint with husky / standard prehook git ?
 5. Ci/Cd for beanstalk

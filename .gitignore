@@ -38,7 +38,7 @@ node_modules/
 dist
 
 # MAc folder
-.DS_STORE
+.DS_Store
 
 # Jest coverage directory output
 coverage
