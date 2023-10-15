@@ -1,13 +1,5 @@
 import type { PlayerListType } from '../database/model';
-
-export type CountryStatisticsType = {
-  country: string;
-  winRatio: number;
-};
-
-export type CountriesType = {
-  [code: string]: CountryStatisticsType;
-};
+import type { CountriesType } from './types';
 
 export const getCountryWithHighestWinRatio = (database: PlayerListType) => {
   const countries = {} as CountriesType;
