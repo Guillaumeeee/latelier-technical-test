@@ -14,7 +14,6 @@ import {
  */
 const basePathUrl: string = '/api/v1';
 
-// TODO: add mock type example
 describe('Testing API endpoints', () => {
   describe('GET /players', () => {
     test('should respond with status 200 and data from getPlayers', async () => {
@@ -31,7 +30,6 @@ describe('Testing API endpoints', () => {
 
   describe('GET /player/:id', () => {
     test('should respond with status 200 and data from getPlayers', async () => {
-      // const res = await request(app).get('/players/52')
       const res = await request(app).get(`${basePathUrl}/player/52`);
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeDefined();

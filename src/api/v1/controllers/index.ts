@@ -13,7 +13,7 @@ import type { CountryStatisticsType } from '../../../utils/types';
 
 /**
  * Task 1
- * @returns 
+ * @returns
  */
 export const getPlayers = async (): Promise<PlayerListType> => {
   return database;

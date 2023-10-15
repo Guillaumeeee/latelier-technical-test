@@ -48,7 +48,7 @@ http://latelier-technical-test.eu-west-3.elasticbeanstalk.com/api/v1/stats
 1. AWS Beanstalk:
    remove config folder
    add Procfile to with command: web: node dist/server.js
-2. Rework types from /statistics + /utils 
+2. Rework types from /statistics + /utils
 3. Logger ?
 4. Prettier + Lint with husky / standard prehook git ?
 5. Ci/Cd for beanstalk
