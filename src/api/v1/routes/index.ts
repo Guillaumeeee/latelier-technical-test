@@ -1,7 +1,11 @@
 import express, { Request, Response } from 'express';
 const router = express.Router();
 
-import { getPlayers, getPlayerById, getStats } from '../controllers';
+import {
+  getPlayers,
+  getPlayerById,
+  getStatistics,
+} from '../controllers';
 
 import { PlayerType } from '../../../database/model';
 
@@ -18,8 +22,11 @@ router.get('/', async (req: Request, res: Response) => {
  * Task 1, sorted best players to the least
  */
 router.get('/players', async (req: Request, res: Response) => {
-  const data = await getPlayers();
-  res.send(data);
+  const players = await getPlayers();
+  const sortedPlayers = players.players.sort(
+    (a, b) => a.data.rank - b.data.rank,
+  );
+  res.send(sortedPlayers);
 });
 
 /**
@@ -49,13 +56,10 @@ router.get(
 /**
  * Task 3, return multiple stats
  */
-
-router.get('/stats', async (req: Request, res: Response) => {
-  // create type Stats
-  // query Param ? averageIMC + medianHeight + topCountries
-  // check each param, if 0 = send all data
-  const data = await getStats();
-  res.json(data);
+router.get('/statistics', async (req: Request, res: Response) => {
+  const data = await getStatistics();
+  res.status(200).json(data);
+  return
 });
 
 export default router;

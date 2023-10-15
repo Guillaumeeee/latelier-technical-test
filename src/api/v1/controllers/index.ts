@@ -1,5 +1,6 @@
 import database, { PlayerListType, PlayerType } from '../../../database/model';
-import { getAverage, getMedian, getRatio, getIMC } from '../../../utils';
+import { getAverageIMC, getMedianHeight, getCountryWithHighestWinRatio } from '../../../utils';
+import type { CountryStatisticsType } from '../../../utils';
 
 export const getPlayers = async (): Promise<PlayerListType> => {
   return database;
@@ -13,56 +14,27 @@ export const getPlayerById = async (
   return player;
 };
 
-export const getStats = async () => {
-  // TODO: create Stats type
+/**
+ * Rework task 3
+ * @returns statistics
+ */
+export const getStatistics = async () => {
 
-  // Populate diverse list
-  const listCountries: string[] = [];
-  const listPlayerRatio: number[] = [];
-  const listIMC: number[] = [];
-
-  const playersList = database.players;
-  for (const player of playersList) {
-    listCountries.push(player.country.code);
-    listPlayerRatio.push(getRatio(player.data.last));
-    listIMC.push(getIMC(player.data.weight, player.data.height));
-  }
-
-  /**
-   * Get highest winnning country by ratio
-   *
-   * TODO: get average ratio of player if same country
-   */
-  let topRatio: number = 0;
-  let topCountryIndex: number = 0;
-  for (let i: number = 0; i < listPlayerRatio.length; i++) {
-    if (listPlayerRatio[i] > topRatio) {
-      topCountryIndex = i;
-      topRatio = listPlayerRatio[i];
-    }
-  }
-  const topCountry = listCountries[topCountryIndex];
-  const topCountryRatio = listPlayerRatio[topCountryIndex];
-
-  /**
-   * Get average IMC of all players
-   */
-  const averagePlayersIMC: number = getAverage(listIMC);
-
-  /**
-   * Get median height of all players
-   */
-  const heightList: number[] = database.players.map(
-    (player) => player.data.height / 100,
-  );
-  const medianPlayersHeight: number = getMedian(heightList);
-
-  const result = {
-    topCountry,
-    topCountryRatio,
-    averagePlayersIMC,
-    medianPlayersHeight,
+  type StatisticsType = {
+    countryWithHighestWinRatio: CountryStatisticsType;
+    averageIMC: number;
+    medianHeight: number;
   };
 
-  return result;
+  const countryWithHighestWinRatio : CountryStatisticsType = getCountryWithHighestWinRatio(database);
+  const averageIMC : number = getAverageIMC(database);
+  const medianHeight : number  = getMedianHeight(database);
+
+  const statistics: StatisticsType = {
+    countryWithHighestWinRatio,
+    averageIMC,
+    medianHeight,
+  };
+
+  return statistics;
 };
