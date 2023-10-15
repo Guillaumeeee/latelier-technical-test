@@ -1,6 +1,11 @@
 import request from 'supertest';
 import app from '../../src/app';
-import { getAverage, getMedian, getRatio, getIMC } from '../../src/utils';
+
+import {
+  getMedianHeight,
+  getAverageIMC,
+  getCountryWithHighestWinRatio,
+} from '../../src/utils/index'
 
 /**
  * API V1 endpoints
@@ -44,57 +49,61 @@ describe('Testing API endpoints', () => {
     });
   });
 
-  describe('GET /stats', () => {
-    it('should respond with status 200 and all data from getStats', async () => {
-      const res = await request(app).get(`${basePathUrl}/stats`);
+  describe('GET /statistics', () => {
+    it('should respond with status 200 and all data from getStatistics', async () => {
+      const res = await request(app).get(`${basePathUrl}/statistics`);
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeDefined();
       expect(res.body).toBeTruthy();
     });
     it('should respond with header Access-Control-Allow-Origin set to *', async () => {
-      const res = await request(app).get(`${basePathUrl}/stats`);
+      const res = await request(app).get(`${basePathUrl}/statistics`);
       expect(res.headers['access-control-allow-origin']).toEqual('*');
     });
-  });
-});
 
-/**
- * Utils functions
- */
-// TODO: check Nan
-describe('Testing /utils functions', () => {
-  describe('getRatio', () => {
-    it('should calculate the ratio correctly', () => {
-      const data: number[] = [1, 1, 0, 1, 0];
-      const ratio: number = getRatio(data);
-      expect(ratio).toBe(0.6);
-      // expect(getRatio(data)).toBe(0.6);
-    });
-    it('should return 0 for an empty array', () => {
-      const data: number[] = [];
-      expect(getRatio(data)).toBe(0);
-    });
-  });
+    type mockPlayerDataType = {
+      id: number;
+      country: {
+        code: string;
+      };
+      data: {
+        last: number[];
+        weight: number;
+        height: number;
+      };
+    }[];
 
-  describe('getAverage', () => {
-    it('should calculate the average correctly', () => {
-      const data: number[] = [10, 20, 30, 40, 50];
-      expect(getAverage(data)).toBe(30);
+    const mockPlayerData : mockPlayerDataType = [
+      {
+        id: 1,
+        country: { code: 'USA' },
+        data: { last: [1, 1, 1, 0, 1], weight: 80000, height: 188 },
+      },
+      {
+        id: 2,
+        country: { code: 'SRB' },
+        data: { last: [0, 1, 0, 0, 1], weight: 74000, height: 185 },
+      },
+      {
+        id: 3,
+        country: { code: 'SUI' },
+        data: { last: [1, 1, 1, 0, 1], weight: 81000, height: 183 },
+      },
+    ];
+    it('Calculate the country with the highest win ratio', () => {
+      const result = getCountryWithHighestWinRatio(mockPlayerData);
+      expect(result.country).toBe('USA');
+      expect(result.winRatio).toBeCloseTo(0.6);
     });
-  });
-
-  describe('getMedian', () => {
-    it('should calculate the median correctly', () => {
-      const data: number[] = [5, 10, 15];
-      expect(getMedian(data)).toBe(10);
+  
+    it('Calculate the average IMC', () => {
+      const result = getAverageIMC(mockPlayerData);
+      expect(result).toBeCloseTo(27.65);
     });
-  });
-
-  describe('getIMC', () => {
-    it('should calculate the IMC correctly', () => {
-      const weight = 80000; // 80 kg
-      const height = 188; // 188 cm
-      expect(getIMC(weight, height)).toBeCloseTo(21.277, 5);
+  
+    it('Calculate the median height', () => {
+      const result = getMedianHeight(mockPlayerData);
+      expect(result).toBe(185); // Middle height value
     });
   });
 });
