@@ -1,11 +1,7 @@
 import express, { Request, Response } from 'express';
 const router = express.Router();
 
-import {
-  getPlayers,
-  getPlayerById,
-  getStatistics,
-} from '../controllers';
+import { getPlayers, getPlayerById, getStatistics } from '../controllers';
 
 import { PlayerType } from '../../../database/model';
 
@@ -59,7 +55,7 @@ router.get(
 router.get('/statistics', async (req: Request, res: Response) => {
   const data = await getStatistics();
   res.status(200).json(data);
-  return
+  return;
 });
 
 export default router;
